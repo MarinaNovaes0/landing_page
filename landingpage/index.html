@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqualife - Tecnologia que cuida da vida costeira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .gradient-blue {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%);
+        }
+        
+        .gradient-ocean {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 50%, #0e7490 100%);
+        }
+        
+        .gradient-green {
+            background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+        }
+        
+        .wave-animation {
+            animation: wave 3s ease-in-out infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 56rem;
+            margin: 0 auto;
+        }
+
+        .team-grid > div {
+            flex: 0 0 calc(50% - 0.75rem);
+            max-width: calc(50% - 0.75rem);
+        }
+
+        @media (min-width: 768px) {
+            .team-grid > div {
+                flex: 0 0 calc(33.333% - 1rem);
+                max-width: calc(33.333% - 1rem);
+            }
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .footer-grid > a {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .footer-grid > a {
+                flex: 0 0 calc(50% - 0.5rem);
+                max-width: calc(50% - 0.5rem);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid > a {
+                flex: 0 0 calc(33.333% - 0.67rem);
+                max-width: calc(33.333% - 0.67rem);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-sky-50 to-white">
+    
+    <!-- Hero Section -->
+    <section class="gradient-blue min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-64 h-64 bg-white rounded-full blur-3xl float"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-cyan-300 rounded-full blur-3xl float" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 py-32 md:py-40 relative z-10">
+            <div class="text-center fade-in visible">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    <span class="text-6xl md:text-8xl bg-gradient-to-r from-cyan-200 to-cyan-500 bg-clip-text text-transparent drop-shadow-2xl">Aqualife</span>: Tecnologia que cuida<br>da vida costeira.
+                </h1>
+                <p class="text-xl md:text-2xl text-cyan-50 mb-12 max-w-3xl mx-auto">
+                    Monitore, registre e proteja ecossistemas marinhos com a força da ciência cidadã e da inteligência digital.
+                </p>
+                
+                <div class="flex justify-center">
+                    <button class="btn-primary text-white px-10 py-5 rounded-full text-xl font-semibold">
+                        Redirecionar para protótipo
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" class="wave-animation" style="height: 400px;">
+                <defs>
+                    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#67e8f9;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#bfdbfe;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path fill="url(#waveGradient)" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- O que é o Aqualife -->
+    <section class="py-20 bg-gradient-to-b from-sky-50 to-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-8">
+                    O que é o Aqualife
+                </h2>
+                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
+                        O Aqualife é um aplicativo de monitoramento e conservação de ecossistemas costeiros — como manguezais, recifes e pradarias marinhas. Ele foi desenvolvido para unir tecnologia, ciência e comunidade: permitindo que qualquer pessoa, de estudantes a pesquisadores, registre o crescimento de corais, acompanhe parâmetros ambientais e contribua para a preservação da vida marinha.
+                    </p>
+                    <p class="text-lg md:text-xl text-cyan-600 font-semibold">
+                        Nossa missão é transformar dados locais em ações reais de mitigação climática, promovendo o equilíbrio entre natureza e inovação.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funcionalidades -->
+    <section class="py-20 bg-gradient-to-b from-white to-emerald-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                    Tudo o que você precisa para cuidar<br>do oceano, na palma da mão.
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <div class="text-5xl mb-4">📝</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Logs e registros inteligentes</h3>
+                    <p class="text-gray-600">Anote diariamente o crescimento de corais e plantas marinhas, com fotos, datas e coordenadas GPS.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <div class="text-5xl mb-4">🌡️</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Monitoramento ambiental</h3>
+                    <p class="text-gray-600">Acompanhe temperatura da água, pH, luminosidade e outros parâmetros — todos armazenados em logs automáticos.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <div class="text-5xl mb-4">🐠</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Banco biológico interativo</h3>
+                    <p class="text-gray-600">Consulte informações sobre taxonomia, biologia e propagação das espécies que você monitora.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <div class="text-5xl mb-4">🔔</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Tarefas e alertas</h3>
+                    <p class="text-gray-600">Crie lembretes de manutenção, mutirões e eventos de coleta de dados.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <div class="text-5xl mb-4">🗺️</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Mapas e visualização de impacto</h3>
+                    <p class="text-gray-600">Veja o avanço da restauração em mapas interativos com IA — acompanhando o crescimento da vida costeira em tempo real.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <div class="text-5xl mb-4">🤝</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Colaboração e ciência cidadã</h3>
+                    <p class="text-gray-600">Compartilhe registros com sua escola, ONG ou comunidade e ajude a construir o maior mapa de vida marinha do Brasil.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inovação e Propósito -->
+    <section class="py-20 gradient-ocean">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">
+                    Uma ideia jovem, com impacto global.
+                </h2>
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 md:p-12 text-white">
+                    <p class="text-lg md:text-xl leading-relaxed mb-6">
+                        Criado por estudantes da 3ª série do Ensino Médio para o Hackathon Mocatec 2025, o Aqualife nasceu do desejo de unir tecnologia, meio ambiente e ação comunitária.
+                    </p>
+                    <p class="text-lg md:text-xl leading-relaxed mb-6">
+                        Nosso projeto responde diretamente ao desafio de mitigação climática com base na natureza, proposto pela Aliança para o Clima Costeiro.
+                    </p>
+                    <p class="text-lg md:text-xl leading-relaxed font-semibold">
+                        Com o Aqualife, ecossistemas como manguezais e recifes se tornam fontes vivas de dados e conhecimento, contribuindo para a captura de carbono azul e para a proteção das comunidades costeiras.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impacto -->
+    <section class="py-20 bg-gradient-to-b from-amber-50 to-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-12 text-center">
+                    Porque preservar também é<br>programar o futuro.
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                        <div class="text-4xl mb-4">🌊</div>
+                        <p class="text-lg text-gray-700">Cada registro feito no Aqualife contribui para estudos de carbono azul e mudanças climáticas.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                        <div class="text-4xl mb-4">💰</div>
+                        <p class="text-lg text-gray-700">As comunidades locais podem usar os dados para buscar financiamentos e parcerias sustentáveis.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                        <div class="text-4xl mb-4">📚</div>
+                        <p class="text-lg text-gray-700">O app estimula educação ambiental, ciência prática e cidadania digital.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                        <div class="text-4xl mb-4">🌍</div>
+                        <p class="text-lg text-gray-700">O sistema pode ser expandido para monitorar toda a zona costeira brasileira, com potencial global.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipe -->
+    <section class="py-20 gradient-green">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">
+                    Jovens programadores,<br>apaixonados pelo oceano.
+                </h2>
+                <p class="text-xl text-white mb-12 leading-relaxed">
+                    Somos uma equipe da 3ª série do Ensino Médio que acredita que tecnologia e natureza podem andar juntas. Cada linha de código, cada ideia e cada teste tem um propósito: fazer a diferença pelo planeta azul.
+                </p>
+                
+                <div class="team-grid">
+                    <div class="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-6 text-white card-hover">
+                        <h3 class="text-xl font-bold">Marina Novaes</h3>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-6 text-white card-hover">
+                        <h3 class="text-xl font-bold">Rafael Carvalho</h3>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-6 text-white card-hover">
+                        <h3 class="text-xl font-bold">Philipi José</h3>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-6 text-white card-hover">
+                        <h3 class="text-xl font-bold">Otávio Mascarenhas</h3>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-6 text-white card-hover">
+                        <h3 class="text-xl font-bold">Thalita Vitória</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-20 bg-gradient-to-b from-sky-100 to-cyan-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in">
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
+                    Junte-se à revolução azul.
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-700 mb-12">
+                    O oceano precisa de protetores — e você pode ser um deles.<br>
+                    Baixe o Aqualife, entre na comunidade e comece a registrar a vida costeira ao seu redor.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="btn-primary text-white px-8 py-4 rounded-full text-lg font-semibold">
+                        Baixar protótipo
+                    </button>
+                    <button class="btn-secondary text-white px-8 py-4 rounded-full text-lg font-semibold">
+                        Apoiar o projeto
+                    </button>
+                    <button class="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition transform hover:scale-105">
+                        Fale com a equipe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-8">
+                <p class="text-lg mb-2">Desenvolvido por estudantes apaixonados por tecnologia e pelo oceano.</p>
+                <p class="text-gray-400 mb-4">Aqualife © 2025 — Projeto do Hackathon MOCATEC.</p>
+                <p class="text-xl italic text-cyan-400 mb-8">"A vida começa no mar. A inovação também."</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-center text-2xl font-bold mb-6">Equipe de Desenvolvimento</h3>
+                <div class="footer-grid">
+                    <a href="#" class="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 rounded-lg p-3 transition">
+                        <span>Marina Novaes</span>
+                        <span class="text-gray-400">GitHub</span>
+                        <img src="img/GitHub.png" alt="GitHub" class="w-5 h-5">
+                    </a>
+                    
+                    <a href="#" class="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 rounded-lg p-3 transition">
+                        <span>Rafael Carvalho</span>
+                        <span class="text-gray-400">GitHub</span>
+                        <img src="img/GitHub.png" alt="GitHub" class="w-5 h-5">
+                    </a>
+                    
+                    <a href="#" class="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 rounded-lg p-3 transition">
+                        <span>Philipi José</span>
+                        <span class="text-gray-400">GitHub</span>
+                        <img src="img/GitHub.png" alt="GitHub" class="w-5 h-5">
+                    </a>
+                    
+                    <a href="#" class="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 rounded-lg p-3 transition">
+                        <span>Otávio Mascarenhas</span>
+                        <span class="text-gray-400">GitHub</span>
+                        <img src="img/GitHub.png" alt="GitHub" class="w-5 h-5">
+                    </a>
+                    
+                    <a href="#" class="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 rounded-lg p-3 transition">
+                        <span>Thalita Vitória</span>
+                        <span class="text-gray-400">GitHub</span>
+                        <img src="img/GitHub.png" alt="GitHub" class="w-5 h-5">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer para animações ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observar todos os elementos com classe fade-in
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll para os botões
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Adiciona feedback visual
+                button.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    button.style.transform = '';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
